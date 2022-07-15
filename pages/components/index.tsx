@@ -2,7 +2,9 @@ import React, { useId, useState } from 'react'
 import Button from '../../components/Button'
 import HouseStatus from '../../components/HouseStatus'
 import InputElement from '../../components/InputElement'
+import PaymentSummary from '../../components/PaymentSummary'
 import ProgressCircle from '../../components/ProgressCircle'
+import SelectInput from '../../components/SelectInput'
 import styles from './components.module.css'
 
 const components = () => {
@@ -33,7 +35,10 @@ const components = () => {
       <Button variant="purple" text="next" />
       <br />
       <br />
-      <InputElement name="rent" label="How much is your rent request amount" />
+      <InputElement
+        name="rent"
+        caption="How much is your rent request amount?"
+      />
       <br />
       <br />
       {statuses.map(({ text, id }) => (
@@ -47,7 +52,13 @@ const components = () => {
       ))}
       <br />
       <br />
-      <ProgressCircle percentage={0}/>
+      <SelectInput caption="Monthly Payment Plan" />
+      <br />
+      <br />
+      <ProgressCircle percentage={0} />
+      <br />
+      <br />
+      <PaymentSummary />
     </div>
   );
 }

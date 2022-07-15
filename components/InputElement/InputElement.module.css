@@ -1,3 +1,14 @@
+.container {
+    width: 100%;
+}
+
+.container p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--kwaba-gray-2);
+    margin-bottom: 1rem;
+}
+
 .inputWrapper {
   position: relative;
   width: 100%;
@@ -21,7 +32,7 @@
   border-radius: 0.8rem;
   outline: none;
   height: 100%;
-  color: var(--kwaba-dark);
+  color: var(--kwaba-black);
   font-weight: 800;
 }
 
