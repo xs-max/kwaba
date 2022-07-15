@@ -35,7 +35,7 @@
 
 .percentage svg circle:nth-child(1) {
     stroke-dashoffset: 0;
-    stroke: var(--kwaba-gray);
+    stroke: var(--kwaba-gray-light-2);
 }
 
 

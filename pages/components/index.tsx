@@ -55,7 +55,7 @@ const components = () => {
       <SelectInput caption="Monthly Payment Plan" />
       <br />
       <br />
-      <ProgressCircle percentage={0} />
+      <ProgressCircle percentage={0.25} />
       <br />
       <br />
       <PaymentSummary />
