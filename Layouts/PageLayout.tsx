@@ -7,8 +7,7 @@ import { payment } from '../store/slices/paymentSlice';
 
 const PageLayout = ({children}) => {
 
-    const {
-      message,error} = useAppSelector(payment);
+    const {message,error} = useAppSelector(payment);
 
   return (
     <div className={styles["container"]}>

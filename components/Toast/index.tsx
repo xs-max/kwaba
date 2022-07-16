@@ -24,7 +24,7 @@ const Toast = ({message, success, danger}: ToastProps) => {
             setTimeout(() => {
                 setShowToast(false);
                 dispatch(clearMessage())
-            }, 8000)
+            }, 5000)
         }
     }, [])
 

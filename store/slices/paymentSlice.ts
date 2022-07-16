@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   accomodationStatus: "",
   rentAmount: null,
-  monthlyEarning: null,
+  monthlyEarning: 0,
   monthlyPlan: null,
   monthlyPayment: null,
   message: null,
@@ -34,6 +34,7 @@ const paymentSlice = createSlice({
     },
     clearMessage: (state) => {
       state.message = null;
+      state.error = null;
     },
     changeRentAmount: (state, { payload }) => {
       state.rentAmount = payload.rentAmount
@@ -47,7 +48,6 @@ const paymentSlice = createSlice({
       state.monthlyPayment =
         parseInt(state.rentAmount) / parseInt(state.monthlyPlan.split(" ")[0]) +
         parseInt(state.rentAmount) * 0.02;
-      console.log(state.rentAmount);
     },
     changeMonthlyPlan: (state, { payload }) => {
       state.monthlyPlan = payload.monthlyPlan;
@@ -71,11 +71,14 @@ const paymentSlice = createSlice({
       state.loading = false;
       state.error = payload.error;
     },
+    createError: (state, { payload }) => {
+        state.error = payload.error;
+    }
   },
 });
 
 export const payment = (state: RootState) => state.payment;
 
-export const {submitrequestLoading, submitrequestSuccess, submitrequestFailed, clearMessage, changeRentAmount, changeMonthlyPlan, submitDetailsFailed, submitDetailsLoading, submitDetailsSuccess} = paymentSlice.actions;
+export const {submitrequestLoading, submitrequestSuccess, submitrequestFailed, clearMessage, changeRentAmount, changeMonthlyPlan, submitDetailsFailed, submitDetailsLoading, submitDetailsSuccess, createError} = paymentSlice.actions;
 
 export default paymentSlice.reducer;

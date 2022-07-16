@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import numeral from "numeral";
 import styles from "./Approval.module.css";
@@ -10,10 +10,12 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxhooks";
 import {
   changeMonthlyPlan,
   changeRentAmount,
+  createError,
   payment,
 } from "../../store/slices/paymentSlice";
 import { submitDetails } from "../../store/actionCreators/saveDetails";
 import PageLayout from "../../Layouts/PageLayout";
+import Home from "..";
 
 const Approval = () => {
   const router = useRouter();
@@ -27,6 +29,9 @@ const Approval = () => {
     accomodationStatus,
   } = useAppSelector(payment);
 
+
+  
+
   const onChangeInput = (e) => {
     dispatch(changeRentAmount({ rentAmount: e.target.value }));
   };
@@ -36,6 +41,10 @@ const Approval = () => {
   };
 
   const submitForm = () => {
+    if(rentAmount <= '' || rentAmount == '00') {
+      dispatch(createError({error: "Please enter a valid rent amount"}));
+      return;
+    }
     dispatch(
       submitDetails(
         {
@@ -53,6 +62,10 @@ const Approval = () => {
       )
     );
   };
+
+  useEffect(() => {
+    if(!monthlyPayment) router.push("/");
+  }, []);
 
   return (
     <PageLayout>

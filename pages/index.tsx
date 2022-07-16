@@ -8,7 +8,7 @@ import SelectInput from "../components/SelectInput";
 import Button from "../components/Button";
 import { submitRequest } from "../store/actionCreators/submitRequest";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxhooks";
-import { payment } from "../store/slices/paymentSlice";
+import { createError, payment } from "../store/slices/paymentSlice";
 import PageLayout from "../Layouts/PageLayout";
 
 const Home = () => {
@@ -78,11 +78,15 @@ const Home = () => {
   };
 
   const submitForm = () => {
+    if(form.request <= 0 || form.monthly <= 0) {
+      dispatch(createError({error: "Please enter a valid rent amount"}));
+      return;
+    }
     if (form.status && form.monthly && form.request && form.plan) {
       dispatch(
         submitRequest(form, () => {
           setTimeout(() => {
-            router.push("/approval/");
+            router.push("/approval");
           }, 3500);
         })
       );
