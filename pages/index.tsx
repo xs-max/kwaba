@@ -14,7 +14,7 @@ import PageLayout from "../Layouts/PageLayout";
 const Home = () => {
   const [isActive, setIsActive] = useState("");
   const [isStatusClicked, setIsStatusClicked] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(3);
   const [isrequseted, setIsrequested] = useState(false);
   const [progressState, setProgressState] = useState(0);
   const [isPlanned, setIsPlanned] = useState(false);
@@ -47,7 +47,7 @@ const Home = () => {
     setIsActive(id);
     setForm({ ...form, status });
     if (!isStatusClicked) {
-      setProgress((progress) => progress + 0.333);
+      setProgress((progress) => progress - 1);
       setProgressState((progressState) => progressState + 1);
       setIsStatusClicked(1);
     }
@@ -56,7 +56,7 @@ const Home = () => {
   const onChangeInput = (e, name) => {
     setForm({ ...form, [name]: e.target.value });
     if (form.request && form.monthly && !isrequseted) {
-      setProgress((progress) => progress + 0.333);
+      setProgress((progress) => progress - 1);
       setProgressState((progressState) => progressState + 1);
       setIsrequested(true);
     }
@@ -65,7 +65,7 @@ const Home = () => {
   const updateMonthly = (plan) => {
     setForm({ ...form, plan });
     if (!isPlanned) {
-      setProgress((progress) => progress + 0.333);
+      setProgress((progress) => progress - 1);
       setProgressState((progressState) => progressState + 1);
       setIsPlanned(true);
     }

@@ -41,6 +41,5 @@
 
 .percentage svg circle:nth-child(2) {
     stroke: var(--kwaba-green);
-    stroke-dashoffset: calc(126 - (126 * 0));
     transition: all .3s ease;
 }
