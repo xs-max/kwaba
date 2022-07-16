@@ -16,19 +16,23 @@ const InputElement = ({
   onChange,
   customStyle,
   value,
-  form
+  form,
 }: InputElementProps) => {
   return (
     <div className={styles["container"]}>
       <p>{caption}</p>
       <div className={styles["inputWrapper"]}>
         <input
-          className={`${styles["formInput"]} ${customStyle && styles['shadow']}`}
+          className={`${styles["formInput"]} ${
+            customStyle ? styles["shadow"] : ""
+          }`}
           id={name}
-          type={value ? "text" : "number"}
-          onChange={(e) => onChange(e, name)}
+          type={"text"}
+          onChange={(e) => {
+            onChange(e, name);
+          }}
           required
-          value={form?.name ? form.name : value}
+          value={form?.name == name ? form.name : value}
         />
         <label className={styles["formLabel"]} htmlFor={name}>
           Amount

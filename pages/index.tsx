@@ -54,7 +54,13 @@ const Home = () => {
   };
 
   const onChangeInput = (e, name) => {
-    setForm({ ...form, [name]: e.target.value });
+    const reg = /^-?\d*\.?\d*$/;
+    const prevInput = form[name];
+    if(e.target.value.match(reg)){
+      setForm({ ...form, [name]: e.target.value });
+    }else{
+      e.target.value = prevInput;
+    }
     if (form.request && form.monthly && !isrequseted) {
       setProgress((progress) => progress - 1);
       setProgressState((progressState) => progressState + 1);
@@ -111,11 +117,13 @@ const Home = () => {
               onChange={onChangeInput}
               caption="How much is your request rent?"
               name="request"
+              form={form}
             />
             <InputElement
               onChange={onChangeInput}
               caption="How much do you earn monthly?"
               name="monthly"
+              form={form}
             />
             <SelectInput
               onChange={updateMonthly}

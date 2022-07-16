@@ -75,7 +75,7 @@ const Approval = () => {
           />
           <PaymentSummary
             rent={numeral(rentAmount).format("0,0")}
-            payable={numeral(monthlyPayment).format("0,0.00")}
+            payable={numeral(monthlyPayment).format("0,0")}
             plan={monthlyPlan}
           />
           <Button
