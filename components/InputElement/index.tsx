@@ -4,7 +4,7 @@ import styles from "./InputElement.module.css";
 type InputElementProps = {
   name: string;
   caption: string;
-  onChange: (e: React.ChangeEvent, name: string) => void;
+  onChange: (e: React.ChangeEvent, name?: string) => void;
   customStyle?: boolean;
   value?: string;
   form?: any;

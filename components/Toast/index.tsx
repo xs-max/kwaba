@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../hooks/reduxhooks';
 import { clearMessage } from '../../store/slices/paymentSlice'
 import classes from './Toast.module.css'
 
@@ -12,7 +12,7 @@ type ToastProps = {
 const Toast = ({message, success, danger}: ToastProps) => {
 
     const [showToast, setShowToast] = useState(true)
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         if (!danger) {
