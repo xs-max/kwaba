@@ -1,19 +1,19 @@
 import React from "react";
 import { useRouter } from "next/router";
 import numeral from "numeral";
-import styles from "../styles/Approval.module.css";
-import InputElement from "../components/InputElement";
-import SelectInput from "../components/SelectInput";
-import Button from "../components/Button";
-import PaymentSummary from "../components/PaymentSummary";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxhooks";
+import styles from "./Approval.module.css";
+import InputElement from "../../components/InputElement";
+import SelectInput from "../../components/SelectInput";
+import Button from "../../components/Button";
+import PaymentSummary from "../../components/PaymentSummary";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxhooks";
 import {
   changeMonthlyPlan,
   changeRentAmount,
   payment,
-} from "../store/slices/paymentSlice";
-import { submitDetails } from "../store/actionCreators/saveDetails";
-import PageLayout from "../Layouts/PageLayout";
+} from "../../store/slices/paymentSlice";
+import { submitDetails } from "../../store/actionCreators/saveDetails";
+import PageLayout from "../../Layouts/PageLayout";
 
 const Approval = () => {
   const router = useRouter();

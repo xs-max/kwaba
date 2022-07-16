@@ -76,7 +76,7 @@ const Home = () => {
       dispatch(
         submitRequest(form, () => {
           setTimeout(() => {
-            router.push("/approval");
+            router.push("/approval/");
           }, 3500);
         })
       );
